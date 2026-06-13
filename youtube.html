@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Youtube Clone </title>
+
+    <style>
+  /* Hide sidebar labels on small screens - show only icons */
+  @media (max-width: 768px) {
+    #sidebar {
+      width: 70px;
+      min-width: 70px;
+    }
+    .sidebar-label {
+      display: none;
+    }
+    #sidebar .flex {
+      justify-content: center;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  /* Hide sidebar completely on very small screens */
+  @media (max-width: 480px) {
+    #sidebar {
+      display: none;
+    }
+    .main-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+
+  </head>
+  <body class="bg-zinc-900">
+
+    <!-- HEADER -->
+    <div class=" min-w-full grid grid-cols-3 bg-zinc-900  h-20 text-white min-h-14 fixed py-5 items-center px-5">
+
+            <!-- hambuger -->
+        <div class="flex text-white float-start space-x-3 items-center "><svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 30 30"
+         style="fill:#FFFFFF;">
+         <path d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 27 16 A 1.0001 1.0001 0 1 0 27 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 27 23 A 1.0001 1.0001 0 1 0 27 21 L 3 21 z"></path>
+         </svg>
+         <!-- youtube logo -->
+         <div class="flex items-center">
+         <img src="./youtube (2).png" alt="youtube logo" class="h-7" />
+         <h2 class="text-3xl font-bold">YouTube </h2>
+         <p class="text-xs text-gray-500 pl-1">NG</p>
+         </div>
+
+        </div>
+        <!-- search bar -->
+        <div class="items-center flex"> 
+
+            <div class=" flex pl-5 bg-black rounded-full w-full h-full  justify-end">
+            <input type="text" name="" id="" placeholder="search" class=" rounded-full h-9 w-[400px] outline-none p-5 text-lg focus:outline-none focus:border-none focus:ring-0 bg-inherit">
+            
+            <!-- SEARCH ICON -->
+            <button class="bg-zinc-700  border-zinc-600 rounded-r-full h-10 w-16 flex items-center justify-center  hover:bg-zinc-600">
+            <svg class="w-6 h-6 items-center" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+            <path fill="white" d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"></path>
+            </svg>
+            </button>
+
+            </div>
+            <!-- michrophone -->
+            <div class="ml-3">
+                
+                <svg class="w-8 h-8 items-center rounded-full bg-zinc-700 border-zinc-600  hover:bg-zinc-600 space-x-5 gap-12"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 4.5C10.314 4.5 9 5.80455 9 7.35V12.15C9 13.6955 10.314 15 12 15C13.686 15 15 13.6955 15 12.15L15 7.35C15 5.80455 13.686 4.5 12 4.5ZM7.5 7.35C7.5 4.919 9.54387 3 12 3C14.4561 3 16.5 4.919 16.5 7.35L16.5 12.15C16.5 14.581 14.4561 16.5 12 16.5C9.54387 16.5 7.5 14.581 7.5 12.15V7.35ZM6.75 12.75C6.75 15.1443 9.0033 17.25 12 17.25C14.9967 17.25 17.25 15.1443 17.25 12.75H18.75C18.75 15.9176 16.0499 18.3847 12.75 18.7129V21H11.25V18.7129C7.95007 18.3847 5.25 15.9176 5.25 12.75H6.75Z" fill="#f8f8fc"></path> </g></svg>
+                
+            </div>
+            
+        </div>
+        <!-- create, bell, acct. -->
+        <div class="flex justify-end space-x-5 pr-1">
+
+            <!-- Create -->
+            <div class="flex items-center gap-2 rounded-full bg-zinc-700 border-zinc-600  hover:bg-zinc-600 py-2 px-4 cursor-pointer">
+                <div class="justify-start"> <svg class="w-6 h-6 items-center" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13 3C13 2.44772 12.5523 2 12 2C11.4477 2 11 2.44772 11 3V11H3C2.44772 11 2 11.4477 2 12C2 12.5523 2.44772 13 3 13H11V21C11 21.5523 11.4477 22 12 22C12.5523 22 13 21.5523 13 21V13H21C21.5523 13 22 12.5523 22 12C22 11.4477 21.5523 11 21 11H13V3Z" fill="#ffffff"></path> </g></svg>
+                    </div>
+                    <span class="text-white text-sm"> Create </span>
+            </div>
+            <!-- BELL -->
+            <div class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-zinc-700 cursor-pointer">
+            <svg class="w-6 h-6" fill="#ffffff" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28.3 22.247c-1.167-1.419-2.765-3.429-2.765-5.48v-6.53c0-5.625-4.207-10.202-9.584-10.202-5.378 0-9.552 4.577-9.552 10.202v6.53c0 2.016-1.734 3.921-2.833 5.4-0.989 1.328-1.77 2.378-1.242 3.427 0.463 0.923 1.624 1.041 2.583 1.041h5.73c0.002 2.944 2.389 5.331 5.333 5.331s5.333-2.386 5.334-5.331h5.864c0.61 0 2.036 0 2.527-1.038 0.495-1.050-0.297-2.016-1.395-3.351zM15.969 29.871c-1.788 0-3.239-1.448-3.241-3.235h6.482c-0.003 1.787-1.452 3.235-3.241 3.235zM27.168 24.506h-22.262c-0.153 0-0.281-0.005-0.386-0.012 0.206-0.319 0.508-0.727 0.755-1.058 1.218-1.637 3.255-3.949 3.255-6.669v-6.53c0-4.452 3.22-8.073 7.423-8.073s7.455 3.622 7.455 8.073v6.53c0 2.813 1.878 5.164 3.249 6.832 0.231 0.281 0.507 0.617 0.722 0.905-0.064 0.002-0.134 0.003-0.209 0.003z"/>
+            </svg>
+            </div>
+            <!-- ACCT -->
+            <div class="bg-black text-white rounded-full w-10 p-2 text-center hover:bg-zinc-700 cursor-pointer">A</div>
+
+            <!-- FILTER CHIPS BAR -->
+            <div class="fixed top-20 left-0 md:left-64 right-0 z-10 bg-zinc-900 px-4 py-2 overflow-x-scroll">
+            <div class="flex gap-3 w-max">
+
+                <button class="bg-white text-black px-3 py-1 rounded-lg text-sm font-medium whitespace-nowrap hover:bg-gray-200">All</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Arsenal F.C.</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Goalkeepers</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Music</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Nollywood</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Penalty kicks</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Martial Arts Movies</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">FIFA World Cup</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Chelsea F.C.</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Mixes</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Live</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Action Thrillers</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Afrobeat</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Sketch comedy</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Pop Music</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Presentations</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Recently uploaded</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">Watched</button>
+                <button class="bg-zinc-700 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap hover:bg-zinc-600">New to you</button>
+
+            </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- FULL BODY -->
+    <div class=" grid grid-cols-6 w-full min-h-screen pt-20">
+
+            <!-- SIDE BAR -->
+        <!-- <div class="col-span-1 border pt-20 overflow-y-auto bg-zinc-900 text-white h-screen sticky top-0 text-sm">
+
+            <div class="border px-1 text-center"> 
+                <div class=" flex justify-start gap-2 hover:bg-zinc-600 ml-2 mr-2 rounded-full text-center px-1"><svg class="w-5 h-5 items-center ml-2" fill="#000000" viewBox="0 0 24 24" id="home-alt-1" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M21.71,11.29l-9-9a1,1,0,0,0-1.42,0l-9,9a1,1,0,0,0,1.42,1.42l.29-.3V20.3A1.77,1.77,0,0,0,5.83,22H8.5a1,1,0,0,0,1-1V16.1a1,1,0,0,1,1-1h3a1,1,0,0,1,1,1V21a1,1,0,0,0,1,1h2.67A1.77,1.77,0,0,0,20,20.3V12.41l.29.3a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,11.29Z" style="fill: #ffffff;"></path></g></svg>
+                <span> Home </span>
+                </div>
+
+                <div class="flex justify-start hover:bg-zinc-600 ml-2 mr-2 rounded-full text-center gap-2"> 
+                <span>Shorts</span>
+                </div>
+
+            </div>
+
+             <div class="border"> 
+               <span> Subsriptions </span>
+            </div>
+
+            <div class="border"> 
+                <span>You</span>
+            </div>
+
+            <div class="border"> 
+                <span>Explore</span>
+                <ul>
+                    <li>Music</li>
+                    <li> Gaming</li>
+                    <li> News</li>
+                </ul>
+            </div>
+
+            <div class="border"> 
+                <span>More from YouTube</span>
+
+                <ul>
+                    <li>YouTube Premium</li>
+                    <li> YouTube Music</li>
+                    <li> YouTube Kids </li>
+                </ul>
+            </div>
+
+            <div class="border"> 
+                <div></div>
+                <span>Report history </span>
+            </div>
+
+            <div>
+
+                <h6>About Press Copyright </h6><br>
+                <h6>Contact us Creator Advertise Developers</h6>
+                <br>
+
+                <h6> Team Privacy Policy & Safety</h6>
+                <h6>How YouTube works</h6>
+                <h6>Test new features</h6>
+
+                <footer text-grey>
+                    &copy; 2026 Google LLC
+                </footer>
+
+
+            </div> -->
+        <!-- </div> -->
+
+        <!-- SIDE BAR -->
+<div class="col-span-1  overflow-y-auto bg-zinc-900 text-white h-screen  top-0 text-sm">
+
+  <!-- Section 1: Main -->
+  <div class="px-3 py-2">
+
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <svg class="w-5 h-5 shrink-0" fill="#ffffff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21.71,11.29l-9-9a1,1,0,0,0-1.42,0l-9,9a1,1,0,0,0,1.42,1.42l.29-.3V20.3A1.77,1.77,0,0,0,5.83,22H8.5a1,1,0,0,0,1-1V16.1a1,1,0,0,1,1-1h3a1,1,0,0,1,1,1V21a1,1,0,0,0,1,1h2.67A1.77,1.77,0,0,0,20,20.3V12.41l.29.3a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,11.29Z"/>
+      </svg>
+      <span>Home</span>
+    </div>
+
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 2C7.243 2 5 4.243 5 7v10c0 2.757 2.243 5 5 5h4c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5h-4zm3 13.5L9 13l1.5-1.5 1.5 1.5V9h2v6l1.5-1.5L17 15l-4 4-4-4z"/>
+      </svg>
+      <span>Shorts</span>
+    </div>
+
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <svg class="w-5 h-5 shrink-0" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h12v2H6zm0 4h8v2H6z"/>
+      </svg>
+      <span>Subscriptions</span>
+    </div>
+
+  </div>
+
+  <!-- Divider -->
+  <hr class="border-zinc-700 mx-3" />
+
+  <!-- Section 2: You -->
+  <div class="px-3 py-2">
+    <p class="px-3 py-1 font-semibold text-white">You &rsaquo;</p>
+
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <span>      <svg class="w-5 h-5 shrink-0" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13 3a9 9 0 1 0 9 9h-2a7 7 0 1 1-7-7V3zm-1 5v5l4 2-1 1.73-5-2.5V8h2z"/>
+      </svg></span>
+      <span>History</span>
+    </div>
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <span>      <svg class="w-5 h-5 shrink-0" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/>
+      </svg></span>
+      <span>Your videos</span>
+    </div>
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <span>      <svg class="w-5 h-5 shrink-0" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+      </svg></span>
+      <span>Watch later</span>
+    </div>
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <span>      <svg class="w-5 h-5 shrink-0" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/>
+      </svg></span>
+      <span>Liked videos</span>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <hr class="border-zinc-700 mx-3" />
+
+  <!-- Section 3: Explore -->
+  <div class="px-3 py-2">
+    <p class="px-3 py-1 font-semibold text-white">Explore</p>
+
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <span>      <svg class="w-5 h-5 shrink-0" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.2 3C15.73 3 14.36 3.56 13.31 4.56L10 7.66 6.69 4.56C5.64 3.56 4.27 3 2.8 3H2v1.8c0 1.47.56 2.84 1.56 3.89L7 12.09V21h2v-8.5l4-3.72 4 3.72V21h2v-8.91l3.44-3.4C23.44 7.64 24 6.27 24 4.8V3h-.8c-1.47 0-2.84.56-3.89 1.56z"/>
+      </svg></span>
+      <span>Trending</span>
+    </div>
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <span>      <svg class="w-5 h-5 shrink-0" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
+      </svg></span>
+      <span>Music</span>
+    </div>
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <span>      <svg class="w-5 h-5 shrink-0" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 6H3a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm-10 7H9v2H7v-2H5v-2h2V9h2v2h2v2zm4.5 1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3-3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+      </svg></span>
+      <span>Gaming</span>
+    </div>
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <span>      <svg class="w-5 h-5 shrink-0" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/>
+      </svg></span>
+      <span>News</span>
+    </div>
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <span>      <svg class="w-5 h-5 shrink-0" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+      </svg></span>
+      <span>Sports</span>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <hr class="border-zinc-700 mx-3" />
+
+  <!-- Section 4: More from YouTube -->
+  <div class="px-3 py-2">
+    <p class="px-3 py-1 font-semibold text-white">More from YouTube</p>
+
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <span>      <svg class="w-5 h-5 shrink-0" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+      </svg></span>
+      <span>YouTube Premium</span>
+    </div>
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <span>      <svg class="w-5 h-5 shrink-0" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
+      </svg></span>
+      <span>YouTube Music</span>
+    </div>
+    <div class="flex items-center gap-4 px-3 py-2 hover:bg-zinc-700 rounded-lg cursor-pointer">
+      <span>      <svg class="w-5 h-5 shrink-0" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+      </svg></span>
+      <span>YouTube Kids</span>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <hr class="border-zinc-700 mx-3" />
+
+  <!-- Footer -->
+  <div class="px-6 py-4 text-xs text-zinc-500 space-y-1">
+    <p>About Press Copyright</p>
+    <p>Contact us · Creators · Advertise</p>
+    <p>Developers · Terms · Privacy</p>
+    <p>Policy & Safety · How YouTube works</p>
+    <p>Test new features</p>
+    <p class="pt-2">&copy; 2026 Google LLC</p>
+  </div>
+
+</div>
+
+
+
+
+<!-- BODY -->
+<div class="col-span-5 w-full overflow-y-auto bg-zinc-900 text-white pt-12 md:col-span-5">
+
+  <!-- SECTION 1: VIDEO GRID -->
+  <section class="px-4 py-6">
+
+    <!-- Video Card Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+      <!-- Video Card (repeat this block for each video) -->
+      <div class="cursor-pointer group">
+        <!-- Thumbnail -->
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/v1/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <!-- Duration Badge -->
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">10:32</span>
+        </div>
+        <!-- Video Info -->
+        <div class="flex gap-3 mt-3">
+          <!-- Channel Avatar -->
+          <div class="w-9 h-9 rounded-full bg-red-500 shrink-0 flex items-center justify-center text-sm font-bold">C</div>
+          <!-- Text Info -->
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">Video Title Goes Here - Something Interesting You Should Watch Today</h3>
+            <p class="text-xs text-zinc-400 mt-1">Channel Name</p>
+            <p class="text-xs text-zinc-400">1.2M views &bull; 3 days ago</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/v2/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">5:47</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-blue-500 shrink-0 flex items-center justify-center text-sm font-bold">M</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">Another Amazing Video Title That Is Quite Long</h3>
+            <p class="text-xs text-zinc-400 mt-1">Music Channel</p>
+            <p class="text-xs text-zinc-400">800K views &bull; 1 week ago</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/v3/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">22:10</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-green-500 shrink-0 flex items-center justify-center text-sm font-bold">T</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">Tech Review 2026 - Best Phones of the Year</h3>
+            <p class="text-xs text-zinc-400 mt-1">Tech Reviews</p>
+            <p class="text-xs text-zinc-400">2.4M views &bull; 2 weeks ago</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/v4/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">8:14</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-yellow-500 shrink-0 flex items-center justify-center text-sm font-bold">N</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">Nollywood Movie Trailer 2026 - Must Watch</h3>
+            <p class="text-xs text-zinc-400 mt-1">Nollywood TV</p>
+            <p class="text-xs text-zinc-400">500K views &bull; 5 days ago</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/v5/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">15:03</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-purple-500 shrink-0 flex items-center justify-center text-sm font-bold">S</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">Sports Highlights - Arsenal vs Chelsea 2026</h3>
+            <p class="text-xs text-zinc-400 mt-1">Sports Central</p>
+            <p class="text-xs text-zinc-400">3.1M views &bull; 1 day ago</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/v6/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">3:45</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-pink-500 shrink-0 flex items-center justify-center text-sm font-bold">A</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">Afrobeat Mix 2026 - Best Songs This Year</h3>
+            <p class="text-xs text-zinc-400 mt-1">Afro Vibes</p>
+            <p class="text-xs text-zinc-400">700K views &bull; 4 days ago</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/v7/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">45:00</span>
+          <!-- LIVE badge -->
+          <span class="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded font-semibold">LIVE</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-red-600 shrink-0 flex items-center justify-center text-sm font-bold">L</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">LIVE: Breaking News Coverage 2026</h3>
+            <p class="text-xs text-zinc-400 mt-1">News Africa</p>
+            <p class="text-xs text-zinc-400">12K watching now</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/v8/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">12:58</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-orange-500 shrink-0 flex items-center justify-center text-sm font-bold">G</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">Gaming Highlights - FIFA World Cup 2026 Goals</h3>
+            <p class="text-xs text-zinc-400 mt-1">Game Zone</p>
+            <p class="text-xs text-zinc-400">980K views &bull; 6 days ago</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AD BANNER -->
+  <section class="px-4 py-2">
+    <div class="w-full bg-zinc-800 border border-zinc-700 rounded-xl flex items-center justify-between px-6 py-4">
+      <div>
+        <p class="text-xs text-zinc-400 mb-1">Ad &bull; Sponsored</p>
+        <h3 class="text-white font-semibold text-sm">Get YouTube Premium — Ad-free videos, background play & more</h3>
+        <p class="text-zinc-400 text-xs mt-1">Try it free for 1 month. Cancel anytime.</p>
+      </div>
+      <button class="bg-white text-black text-sm font-semibold px-4 py-2 rounded-full hover:bg-gray-200 shrink-0 ml-4">
+        Try Free
+      </button>
+    </div>
+  </section>
+
+  <!-- SECTION 2: SHORTS -->
+  <section class="px-4 py-6">
+
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center gap-2">
+        <!-- Shorts Icon -->
+        <svg class="w-6 h-6 text-red-500" viewBox="0 0 24 24" fill="red" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 2C7.243 2 5 4.243 5 7v10c0 2.757 2.243 5 5 5h4c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5h-4zm3 13.5L9 13l1.5-1.5 1.5 1.5V9h2v6l1.5-1.5L17 15l-4 4-4-4z"/>
+        </svg>
+        <h2 class="text-white font-bold text-lg">Shorts</h2>
+      </div>
+      <button class="text-zinc-400 text-sm hover:text-white flex items-center gap-1">
+        See all <span>&rsaquo;</span>
+      </button>
+    </div>
+
+    <!-- Shorts Cards Row -->
+    <div class="flex gap-3 overflow-x-auto pb-2">
+
+      <!-- Short Card -->
+      <div class="shrink-0 w-36 cursor-pointer group">
+        <div class="relative w-36 h-64 bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/s1/200/356" alt="short" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">0:58</span>
+        </div>
+        <p class="text-xs text-white mt-2 line-clamp-2 leading-snug">Short video title goes here</p>
+        <p class="text-xs text-zinc-400 mt-0.5">500K views</p>
+      </div>
+
+      <div class="shrink-0 w-36 cursor-pointer group">
+        <div class="relative w-36 h-64 bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/s2/200/356" alt="short" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">0:45</span>
+        </div>
+        <p class="text-xs text-white mt-2 line-clamp-2 leading-snug">Funny moment compilation</p>
+        <p class="text-xs text-zinc-400 mt-0.5">1.2M views</p>
+      </div>
+
+      <div class="shrink-0 w-36 cursor-pointer group">
+        <div class="relative w-36 h-64 bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/s3/200/356" alt="short" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">0:30</span>
+        </div>
+        <p class="text-xs text-white mt-2 line-clamp-2 leading-snug">Crazy goal from half way line</p>
+        <p class="text-xs text-zinc-400 mt-0.5">3.4M views</p>
+      </div>
+
+      <div class="shrink-0 w-36 cursor-pointer group">
+        <div class="relative w-36 h-64 bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/s4/200/356" alt="short" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">0:59</span>
+        </div>
+        <p class="text-xs text-white mt-2 line-clamp-2 leading-snug">Dance challenge gone wrong</p>
+        <p class="text-xs text-zinc-400 mt-0.5">800K views</p>
+      </div>
+
+      <div class="shrink-0 w-36 cursor-pointer group">
+        <div class="relative w-36 h-64 bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/s5/200/356" alt="short" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">0:52</span>
+        </div>
+        <p class="text-xs text-white mt-2 line-clamp-2 leading-snug">Afrobeat vibes Nigeria 2026</p>
+        <p class="text-xs text-zinc-400 mt-0.5">2.1M views</p>
+      </div>
+
+      <div class="shrink-0 w-36 cursor-pointer group">
+        <div class="relative w-36 h-64 bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/s6/200/356" alt="short" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">0:41</span>
+        </div>
+        <p class="text-xs text-white mt-2 line-clamp-2 leading-snug">Cooking hack you need to know</p>
+        <p class="text-xs text-zinc-400 mt-0.5">600K views</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: SUBSCRIPTIONS -->
+  <section class="px-4 py-6">
+
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-white font-bold text-lg">From your subscriptions</h2>
+      <button class="text-zinc-400 text-sm hover:text-white flex items-center gap-1">See all &rsaquo;</button>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/sub1/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">18:22</span>
+          <!-- New badge -->
+          <span class="absolute top-2 left-2 bg-blue-600 text-white text-xs px-2 py-0.5 rounded font-semibold">NEW</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-red-500 shrink-0 flex items-center justify-center text-sm font-bold">A</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">Arsenal Match Day Vlog - Behind The Scenes</h3>
+            <p class="text-xs text-zinc-400 mt-1">Arsenal FC</p>
+            <p class="text-xs text-zinc-400">450K views &bull; 2 hours ago</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/sub2/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">9:10</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-blue-600 shrink-0 flex items-center justify-center text-sm font-bold">C</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">Chelsea Pre-Season Training Highlights</h3>
+            <p class="text-xs text-zinc-400 mt-1">Chelsea FC</p>
+            <p class="text-xs text-zinc-400">230K views &bull; 5 hours ago</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/sub3/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">24:00</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-green-600 shrink-0 flex items-center justify-center text-sm font-bold">P</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">Pop Music Playlist - Top Hits 2026</h3>
+            <p class="text-xs text-zinc-400 mt-1">Pop Central</p>
+            <p class="text-xs text-zinc-400">1.8M views &bull; 1 day ago</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/sub4/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">33:15</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-yellow-600 shrink-0 flex items-center justify-center text-sm font-bold">M</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">Martial Arts Movie - Full Action Scene Breakdown</h3>
+            <p class="text-xs text-zinc-400 mt-1">Movie Fanatics</p>
+            <p class="text-xs text-zinc-400">670K views &bull; 3 days ago</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: MORE VIDEOS -->
+  <section class="px-4 py-6">
+    <h2 class="text-white font-bold text-lg mb-4">More videos for you</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/m1/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">7:22</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-teal-500 shrink-0 flex items-center justify-center text-sm font-bold">S</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">Sketch Comedy - Nigerian Office Edition</h3>
+            <p class="text-xs text-zinc-400 mt-1">Comedy Hub</p>
+            <p class="text-xs text-zinc-400">400K views &bull; 2 days ago</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/m2/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">19:44</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-indigo-500 shrink-0 flex items-center justify-center text-sm font-bold">F</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">FIFA World Cup 2026 - All Goals Compilation</h3>
+            <p class="text-xs text-zinc-400 mt-1">FIFA Official</p>
+            <p class="text-xs text-zinc-400">5.6M views &bull; 1 week ago</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/m3/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">11:05</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-cyan-500 shrink-0 flex items-center justify-center text-sm font-bold">P</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">How to Make a Great Presentation - Tips & Tricks</h3>
+            <p class="text-xs text-zinc-400 mt-1">Productivity Pro</p>
+            <p class="text-xs text-zinc-400">220K views &bull; 4 days ago</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cursor-pointer group">
+        <div class="relative w-full aspect-video bg-zinc-700 rounded-xl overflow-hidden">
+          <img src="https://picsum.photos/seed/m4/400/225" alt="thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" />
+          <span class="absolute bottom-2 right-2 bg-black bg-opacity-80 text-white text-xs px-1.5 py-0.5 rounded">6:30</span>
+        </div>
+        <div class="flex gap-3 mt-3">
+          <div class="w-9 h-9 rounded-full bg-rose-500 shrink-0 flex items-center justify-center text-sm font-bold">N</div>
+          <div>
+            <h3 class="text-sm font-semibold text-white line-clamp-2 leading-snug">New to YouTube? Here's Everything You Need to Know</h3>
+            <p class="text-xs text-zinc-400 mt-1">YouTube Help</p>
+            <p class="text-xs text-zinc-400">120K views &bull; 1 month ago</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+    </div>
+
+
+  </body>
+</html>
